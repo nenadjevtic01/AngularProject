@@ -1,0 +1,169 @@
+<!-- Page Header Start -->
+<div class="container-fluid bg-secondary mb-5">
+  <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 300px">
+    <h1 class="font-weight-semi-bold text-uppercase mb-3">Our Shop</h1>
+    <div class="d-inline-flex">
+      <p class="m-0"><a routerLink="">Home</a></p>
+      <p class="m-0 px-2">-</p>
+      <p class="m-0">Shop</p>
+    </div>
+  </div>
+</div>
+<!-- Page Header End -->
+
+
+<!-- Shop Start -->
+<div class="container-fluid pt-5">
+  <div class="row px-xl-5">
+    <!-- Shop Sidebar Start -->
+    <div class="col-lg-3 col-md-12">
+      <!-- Gender Start -->
+      <div class="border-bottom mb-4 pb-4">
+        <h5 class="font-weight-semi-bold mb-4">Filter by gender</h5>
+        <form>
+          <ng-container *ngFor="let g of genders">
+            <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+              <input type="checkbox" [checked]="parseInt(genderChecked)==g.id"  (change)="toggleFilter('genders', g.id)" class="custom-control-input"  id="gender{{g.id}}">
+              <label class="custom-control-label" for="gender{{g.id}}">{{g.name}}</label>
+<!--              <span class="badge border font-weight-normal">1000</span>-->
+            </div>
+          </ng-container>
+        </form>
+      </div>
+      <!-- Gender End -->
+
+      <!-- Brand Start -->
+      <div class="border-bottom mb-4 pb-4">
+        <h5 class="font-weight-semi-bold mb-4">Filter by brand</h5>
+        <form>
+          <ng-container *ngFor="let b of brands">
+            <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+              <input type="checkbox" [checked]="parseInt(brandChecked)==b.id" (change)="toggleFilter('brands', b.id)" class="custom-control-input" id="brand{{b.id}}">
+              <label class="custom-control-label" for="brand{{b.id}}">{{b.name}}</label>
+<!--              <span class="badge border font-weight-normal">1000</span>-->
+            </div>
+          </ng-container>
+        </form>
+      </div>
+      <!-- Brand End -->
+
+      <!-- Category Start -->
+      <div class="mb-5">
+        <h5 class="font-weight-semi-bold mb-4">Filter by category</h5>
+        <form>
+          <ng-container *ngFor="let c of categories">
+            <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+              <input type="checkbox" [checked]="parseInt(categoryChecked)==c.id" (change)="toggleFilter('categories', c.id)" class="custom-control-input" id="category{{c.id}}">
+              <label class="custom-control-label" for="category{{c.id}}">{{c.name}}</label>
+<!--              <span class="badge border font-weight-normal">1000</span>-->
+            </div>
+          </ng-container>
+        </form>
+      </div>
+      <!-- Category End -->
+
+      <!-- Size Start -->
+      <div class="border-bottom mb-4 pb-4">
+        <h5 class="font-weight-semi-bold mb-4">Filter by size</h5>
+        <form>
+          <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+            <input type="checkbox" (change)="toggleFilter('sizes', 'XS')" class="custom-control-input" id="sizeXs">
+            <label class="custom-control-label" for="sizeXs">XS</label>
+            <!--              <span class="badge border font-weight-normal">1000</span>-->
+          </div>
+          <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+            <input type="checkbox" (change)="toggleFilter('sizes', 'S')" class="custom-control-input" id="sizeS">
+            <label class="custom-control-label" for="sizeS">S</label>
+            <!--              <span class="badge border font-weight-normal">1000</span>-->
+          </div>
+          <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+            <input type="checkbox" (change)="toggleFilter('sizes', 'M')" class="custom-control-input" id="sizeM">
+            <label class="custom-control-label" for="sizeM">M</label>
+            <!--              <span class="badge border font-weight-normal">1000</span>-->
+          </div>
+          <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+            <input type="checkbox" (change)="toggleFilter('sizes', 'L')" class="custom-control-input" id="sizeL">
+            <label class="custom-control-label" for="sizeL">L</label>
+            <!--              <span class="badge border font-weight-normal">1000</span>-->
+          </div>
+          <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+            <input type="checkbox" (change)="toggleFilter('sizes', 'XL')" class="custom-control-input" id="sizeXl">
+            <label class="custom-control-label" for="sizeXl">XL</label>
+            <!--              <span class="badge border font-weight-normal">1000</span>-->
+          </div>
+        </form>
+      </div>
+      <!-- Size End -->
+    </div>
+    <!-- Shop Sidebar End -->
+
+
+    <!-- Shop Product Start -->
+    <div class="col-lg-9 col-md-12">
+      <div class="row pb-3">
+        <div class="col-12 pb-1">
+          <div class="d-flex align-items-center justify-content-between mb-4">
+            <form>
+              <div class="input-group">
+                <input type="text" [(ngModel)]="keyword" (ngModelChange)="onKeyUp()"  name="keyword" class="form-control" placeholder="Search by name">
+                <div class="input-group-append">
+                                        <span class="input-group-text bg-transparent text-primary">
+                                            <i class="fa fa-search"></i>
+                                        </span>
+                </div>
+              </div>
+            </form>
+            <div class="dropdown ml-4">
+<!--              <button class="btn border dropdown-toggle" type="button" id="triggerId" data-toggle="dropdown" aria-haspopup="true"-->
+<!--                      aria-expanded="false">-->
+<!--                Sort by-->
+<!--              </button>-->
+              <select class="btn text-left border dropdown-toggle dropdown-menu-right"  [(ngModel)]="sortOption" (ngModelChange)="applySorting()">
+                <option class="dropdown-item" [value]=0 >Sort by</option>
+                <option class="dropdown-item" [value]=1 >Price ascending</option>
+                <option class="dropdown-item" [value]=2 >Price descending</option>
+                <option class="dropdown-item" [value]=3 >Name ascending</option>
+                <option class="dropdown-item" [value]=4 >Name descending</option>
+              </select>
+<!--              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="triggerId">-->
+<!--                <a class="dropdown-item" href="#">Latest</a>-->
+<!--                <a class="dropdown-item" href="#">Popularity</a>-->
+<!--                <a class="dropdown-item" href="#">Best Rating</a>-->
+<!--              </div>-->
+            </div>
+          </div>
+        </div>
+        <ng-container *ngFor="let p of displayedProducts">
+          <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
+            <div class="card product-item border-0 mb-4">
+              <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                <img class="img-fluid w-100" src="{{p.img.src}}" alt="{{p.img.alt}}">
+              </div>
+              <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                <h6 class="text-truncate mb-3">{{p.name}}</h6>
+                <div class="d-flex justify-content-center">
+                  <h5>{{p.price.newPrice | currency: 'EUR'}}</h5><h6 class="text-muted ml-2"><del>{{p.price.oldPrice | currency: 'EUR'}}</del></h6>
+                </div>
+              </div>
+              <div class="card-footer d-flex justify-content-center bg-light border">
+                <a routerLink="/product/{{p.id}}" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
+<!--                <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>-->
+              </div>
+            </div>
+          </div>
+        </ng-container>
+        <div class="col-12 pb-1">
+          <nav aria-label="Page navigation">
+            <div class="pagination d-flex align-items-center">
+              <button class="btn" (click)="onPreviousPage()" [disabled]="currentPage === 1">Previous</button>
+              <span>Page {{ currentPage }} of {{ totalPages() }}</span>
+              <button class="btn" (click)="onNextPage()" [disabled]="currentPage === totalPages()">Next</button>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+    <!-- Shop Product End -->
+  </div>
+</div>
+<!-- Shop End -->

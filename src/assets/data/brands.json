@@ -1,0 +1,34 @@
+[
+    {
+        "id":1,
+        "name":"Suima",
+        "img":{
+          "src":"../../../assets/img/SuimaLogo.jpg",
+          "alt":"Suima brand logo"
+        }
+    },
+    {
+        "id":2,
+        "name":"Fb Fashion",
+        "img":{
+          "src":"../../../assets/img/FbFashionLogo.jpg",
+          "alt":"Fb Fashion brand logo"
+        }
+    },
+    {
+        "id":3,
+        "name":"GOMS",
+        "img":{
+          "src":"../../../assets/img/GomsLogo.jpg",
+          "alt":"Goms brand logo"
+        }
+    },
+    {
+        "id":4,
+        "name":"BSFN",
+        "img":{
+          "src":"../../../assets/img/BsfnLogo.jpg",
+          "alt":"Bsfn brand logo"
+        }
+    }
+]

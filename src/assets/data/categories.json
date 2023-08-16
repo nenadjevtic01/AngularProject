@@ -1,0 +1,58 @@
+[
+    {
+        "id":1,
+        "name":"Shirts",
+        "img":{
+          "src":"../../../assets/img/shirts/BSFN2.png",
+          "alt":"T-shirt with layering image 1"
+        }
+    },
+    {
+        "id":2,
+        "name":"Jeans",
+        "img":{
+          "src":"../../../assets/img/jeans/GOMS1.png",
+          "alt":"Stone Washed Relaxed Denim image 1"
+        }
+    },
+    {
+        "id":3,
+        "name":"Jumpers",
+        "img":{
+          "src":"../../../assets/img/jumpers/GOMS4.png",
+          "alt":"Male Hoodie image 4"
+        }
+    },
+    {
+        "id":4,
+        "name":"Jackets",
+        "img":{
+          "src":"../../../assets/img/jackets/GOMS2.png",
+          "alt":"Jacket with stand-up collar image 1"
+        }
+    },
+    {
+        "id":5,
+        "name":"Dress",
+        "img":{
+          "src":"../../../assets/img/dress/FbFashion1.png",
+          "alt":"Swinging mini dress image 1"
+        }
+    },
+    {
+        "id":6,
+        "name":"Skirts",
+        "img":{
+          "src":"../../../assets/img/skirts/Suima1.png",
+          "alt":"Women mini skirt image 1"
+        }
+    },
+    {
+        "id":7,
+        "name":"Shorts",
+        "img":{
+          "src":"../../../assets/img/shorts/BSFN1.png",
+          "alt":"Sweatshorts image 1"
+        }
+    }
+]
